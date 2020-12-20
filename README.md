@@ -6,7 +6,8 @@ Compile a project using VS, Rider or `dotnet publish` OR **download a compiled e
 Then put the tool (`FlutterWebDeploy.exe`) into your flutter project directory (also you can create another folder and put the program here, for example `project_dir/deployment`).
 After that you'll have two ways to use it (below).
 ### Option 1: Config file
-Just open (or create) file `flutter_web_deploy.yaml` (it should be placed inside the program directory). And set the required properties: `ftp_login`, `ftp_password`, `ftp_host` and `remote_path`.
+Just open (or create) file `flutter_web_deploy.yaml` (it should be placed inside the program directory). And set the required properties: `ftp_login`, `ftp_password`, `ftp_host` and `remote_path`.<br>
+*Note: don't forget to add file `flutter_web_deploy.yaml` into `.gitignore`.*
 
 ### Option 2: Program arguments
 The second variant is to set options in the program arguments. Here is the main arguments list:
