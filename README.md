@@ -46,4 +46,5 @@ flutter_arguments:
 
 # ToDo
 - MacOS and Linux platform support.<br>
+---
 The tool is developed under .NET Core.
