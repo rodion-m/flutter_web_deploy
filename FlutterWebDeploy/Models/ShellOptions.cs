@@ -6,7 +6,7 @@ namespace FlutterWebDeploy.Models
 
     public class ShellOptions : IDeployConfig
     {
-        [Option('c', "config", Required = false, HelpText = "Path to the deploy config file (.yaml).")]
+        [Option('c', "config", Required = false, HelpText = "Path to the deploy config file (flutter_web_deploy.yaml is default).")]
         public string? ConfigPath { get; set; }
 
         [Option('l', "login", Required = false, HelpText = "FTP connection login.")]
@@ -33,10 +33,10 @@ namespace FlutterWebDeploy.Models
         [Option("remote_path", Required = false, HelpText = "Path to the app remote directory on a server (root is default).")]
         public string? RemotePath { get; set; }
 
-        [Option("flutter_path", Required = false, HelpText = "Extra arguments for flutter build.")]
+        [Option("flutter_path", Required = false, HelpText = "Path to the flutter framework (flutter from PATH environment is default).")]
         public string? FlutterPath { get; set; }
 
-        [Option("custom_args", Required = false, HelpText = "Custom arguments for flutter build.")]
+        [Option("custom_args", Required = false, HelpText = "Custom arguments for flutter build (set them after --).")]
         public string? FlutterCustomArguments { get; set; }
     }
 }

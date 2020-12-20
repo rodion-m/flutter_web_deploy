@@ -74,6 +74,7 @@ namespace FlutterWebDeploy
 
         private static async Task Deploy(DeployConfig config)
         {
+            Console.WriteLine("--- Flutter Web Deploy ---");
             if (!RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
                 throw new ApplicationException("Sorry, only Windows is supported at the moment.");
 
@@ -163,6 +164,7 @@ namespace FlutterWebDeploy
             if (cmd.ExitCode == 0)
             {
                 Console.WriteLine(await cmd.StandardOutput.ReadToEndAsync());
+                Console.WriteLine("Build complete.");
             }
             else
             {

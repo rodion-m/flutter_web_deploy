@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 using CommandLine;
 using FlutterWebDeploy.Models;
@@ -11,10 +12,14 @@ namespace FlutterWebDeploy
     {
         private static async Task<int> Main(string[] args)
         {
-            Console.WriteLine("--- Flutter Web Deploy ---");
+            Console.OutputEncoding = Encoding.UTF8;
             try
             {
-                var parser = new Parser(settings => settings.EnableDashDash = true);
+                var parser = new Parser(settings =>
+                {
+                    settings.HelpWriter = Console.Error;
+                    settings.EnableDashDash = true;
+                });
                 await parser.ParseArguments<ShellOptions>(args)
                     .WithNotParsed(HandleParseError)
                     .WithParsedAsync(options => Deployment.RunOptions(options, args.Any()));
@@ -30,8 +35,11 @@ namespace FlutterWebDeploy
 
         private static void HandleParseError(IEnumerable<Error> errs)
         {
+            var array = errs as Error[] ?? errs.ToArray();
+            if(array.Any(it => it is HelpRequestedError))
+                return;
             throw new ApplicationException(
-                string.Join('\n', errs.Where(it => it.Tag != ErrorType.MissingRequiredOptionError)
+                string.Join('\n', array.Where(it => it.Tag != ErrorType.MissingRequiredOptionError)
                     .Select(it =>
                     {
                         if (it is TokenError tokenError)
