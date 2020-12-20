@@ -1,9 +1,9 @@
 # Flutter Web Deploy
-This solution allows to deploy flutter web app via FTP with one click. At the moment the program **works only from Windows**.
+This tool allows to deploy flutter web app via FTP with one click. At the moment the program **works only from Windows**.
 
 # Installiation
 Compile a project using VS, Rider or `dotnet publish` OR **download a compiled executable from [releases](https://github.com/rodion-m/flutter_web_deploy/releases)**.<br>
-Then put the program (`FlutterWebDeploy.exe`) into your flutter project directory (also you can create another folder and put the program here, for example `project_dir/deployment`).
+Then put the tool (`FlutterWebDeploy.exe`) into your flutter project directory (also you can create another folder and put the program here, for example `project_dir/deployment`).
 After that you'll have two ways to use it (below).
 ### Option 1: Config file
 Just open (or create) file `flutter_web_deploy.yaml` (it should be placed inside the program directory). And set the required properties: `ftp_login`, `ftp_password`, `ftp_host` and `remote_path`.
